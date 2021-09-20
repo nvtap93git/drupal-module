@@ -1,0 +1,10 @@
+# Define the menu links for this module
+
+entity.product.collection:
+  title: 'Products Listing'
+  route_name: entity.product.collection
+  description: 'List Products'
+  parent: system.admin_structure
+  weight: 10
+
+

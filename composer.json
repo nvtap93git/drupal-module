@@ -1,0 +1,13 @@
+{
+    "name": "nguyentap/dictionary",
+    "type": "drupal-module",
+    "authors": [
+        {
+            "name": "Tap Nguyen",
+            "email": "nvtap93git@gmail.com"
+        }
+    ],
+    "require": {
+        "endroid/qr-code-bundle": "^3.4"
+    }
+}

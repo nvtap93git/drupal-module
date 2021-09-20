@@ -1,0 +1,59 @@
+# This file brings everything together. Very nifty!
+
+# Route name can be used in sevaral place (links, redirects, local actions etc.)
+entity.product.canonical:
+  path: '/product/{product}'
+  defaults:
+  # Calls the view controller, defined in the annotation of the product entity
+    _entity_view: 'product'
+    _title: 'product Content'
+  requirements:
+  # Calls the access controller of the entity, $operation 'view'
+    _access: 'TRUE'
+
+entity.product.collection:
+  path: '/product/list'
+  defaults:
+  # Calls the list controller, defined in the annotation of the product entity.
+    _entity_list: 'product'
+    _title: 'product List'
+  requirements:
+  # Checks for permission directly.
+    _access: 'TRUE'
+
+entity.product.add:
+  path: '/product/add'
+  defaults:
+  # Calls the form.add controller, defined in the product entity.
+    _entity_form: product.add
+    _title: 'Add product'
+  requirements:
+    _entity_create_access: 'product'
+
+entity.product.edit_form:
+  path: '/product/{product}/edit'
+  defaults:
+  # Calls the form.edit controller, defined in the product entity.
+    _entity_form: product.edit
+    _title: 'Edit product'
+  requirements:
+    _entity_access: 'product.edit'
+
+entity.product.delete_form:
+  path: '/product/{product}/delete'
+  defaults:
+    # Calls the form.delete controller, defined in the product entity.
+    _entity_form: product.delete
+    _title: 'Delete product'
+  requirements:
+    _entity_access: 'product.delete'
+
+
+entity.product.qr.generator:
+  path: '/image-qr-generate/{productID}'
+  defaults:
+    _controller: '\Drupal\product\Controller\QRImageGeneratorController::image'
+  requirements:
+    # Needs to be accessed by an anonymous user.
+    _access: 'TRUE'
+
